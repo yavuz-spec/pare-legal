@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy · Pare</title>
+  <meta name="description" content="Privacy Policy for Pare, your personal AI cooking assistant by Appcern.">
+  <style>
+    :root {
+      --bg: #FFFBF7;
+      --surface: #FFFFFF;
+      --text: #1a1a1a;
+      --text-muted: #555555;
+      --text-subtle: #888888;
+      --border: rgba(0,0,0,0.08);
+      --border-strong: rgba(0,0,0,0.12);
+      --accent: #FF6B35;
+      --accent-soft: #FFE8DD;
+      --accent-dark: #993C1D;
+      --table-header: #F7F2EA;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1410;
+        --surface: #241c17;
+        --text: #f5f1ea;
+        --text-muted: #b8b0a8;
+        --text-subtle: #7e766e;
+        --border: rgba(255,255,255,0.08);
+        --border-strong: rgba(255,255,255,0.14);
+        --accent: #FF8556;
+        --accent-soft: #3a2418;
+        --accent-dark: #FFB593;
+        --table-header: #2d231c;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 0.5px solid var(--border);
+      z-index: 10;
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+    }
+
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      background: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 17px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+    }
+
+    .brand-name { font-size: 14px; font-weight: 500; }
+
+    .lang-switch {
+      display: flex;
+      gap: 3px;
+      background: var(--surface);
+      padding: 3px;
+      border-radius: 8px;
+      border: 0.5px solid var(--border);
+    }
+
+    .lang-btn {
+      padding: 5px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-subtle);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .lang-btn.active {
+      background: var(--bg);
+      color: var(--text);
+      box-shadow: 0 0.5px 1px rgba(0,0,0,0.08);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
+      font-weight: 500;
+      margin: 0 0 12px;
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+    }
+
+    .meta {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin: 0 0 48px;
+    }
+
+    nav.toc {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin-bottom: 56px;
+    }
+
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .toc-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      columns: 2;
+      column-gap: 24px;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .toc-list a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .toc-list a:hover { color: var(--accent); }
+
+    .toc-num {
+      color: var(--accent);
+      margin-right: 10px;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    section {
+      margin-bottom: 44px;
+      scroll-margin-top: 80px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
+      margin: 0 0 18px;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      line-height: 1.3;
+    }
+
+    .section-num {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+
+    p, ul {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin: 0 0 14px;
+    }
+
+    p:last-child, ul:last-child { margin-bottom: 0; }
+
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+
+    strong { color: var(--text); font-weight: 500; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 8px 0 16px;
+      font-size: 14px;
+      background: var(--surface);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 0.5px solid var(--border);
+    }
+
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 0.5px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    th {
+      background: var(--table-header);
+      font-weight: 500;
+      font-size: 12px;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td { color: var(--text-muted); line-height: 1.5; }
+    td:first-child { color: var(--text); font-weight: 500; }
+
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+
+    footer {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px;
+      border-top: 0.5px solid var(--border);
+      color: var(--text-subtle);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    footer a { color: var(--accent); }
+    footer .back-link { display: inline-block; margin-bottom: 12px; }
+
+    @media (max-width: 520px) {
+      .header-inner { padding: 14px 20px; }
+      .container { padding: 36px 20px 60px; }
+      h1 { font-size: 32px; }
+      h2 { font-size: 19px; gap: 10px; }
+      .toc-list { columns: 1; }
+      nav.toc { padding: 18px 20px; }
+      table { font-size: 13px; }
+      th, td { padding: 10px 12px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="../">
+        <div class="brand-mark">P</div>
+        <span class="brand-name">Pare</span>
+      </a>
+      <div class="lang-switch" role="tablist">
+        <button class="lang-btn active" data-lang="en" role="tab">EN</button>
+        <button class="lang-btn" data-lang="tr" role="tab">TR</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- ENGLISH -->
+    <div class="lang-section active" data-lang="en">
+
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Last updated 2026-05-14
+      </div>
+
+      <h1>Privacy Policy</h1>
+      <p class="meta">Pare app, operated by Appcern.</p>
+
+      <nav class="toc">
+        <div class="toc-label">Contents</div>
+        <ol class="toc-list">
+          <li><a href="#en-1"><span class="toc-num">01</span>Information We Collect</a></li>
+          <li><a href="#en-2"><span class="toc-num">02</span>How We Use Your Data</a></li>
+          <li><a href="#en-3"><span class="toc-num">03</span>Third-Party Services</a></li>
+          <li><a href="#en-4"><span class="toc-num">04</span>Your Rights</a></li>
+          <li><a href="#en-5"><span class="toc-num">05</span>Data Retention</a></li>
+          <li><a href="#en-6"><span class="toc-num">06</span>Children's Privacy</a></li>
+          <li><a href="#en-7"><span class="toc-num">07</span>Security</a></li>
+          <li><a href="#en-8"><span class="toc-num">08</span>International Transfers</a></li>
+          <li><a href="#en-9"><span class="toc-num">09</span>Changes</a></li>
+          <li><a href="#en-10"><span class="toc-num">10</span>Contact</a></li>
+        </ol>
+      </nav>
+
+      <section id="en-1">
+        <h2><span class="section-num">01</span>Information We Collect</h2>
+        <p>We collect the following data when you use Pare:</p>
+        <table>
+          <thead>
+            <tr><th>Category</th><th>Examples</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Account</td><td>Email, name (if you sign in)</td><td>Account creation</td></tr>
+            <tr><td>Preferences</td><td>Cuisine, dietary restrictions, ingredients</td><td>Recipe personalization</td></tr>
+            <tr><td>Usage data</td><td>Crash reports, AI request counts</td><td>App stability, analytics</td></tr>
+            <tr><td>Advertising</td><td>IDFA / Advertising ID (with consent)</td><td>Ad personalization (AdMob)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="en-2">
+        <h2><span class="section-num">02</span>How We Use Your Data</h2>
+        <ul>
+          <li><strong>Recipe generation:</strong> Your ingredient list, dietary preferences, and country are sent to Google Gemini AI to produce personalized recipes.</li>
+          <li><strong>App functionality:</strong> Firebase Auth manages sign-in; Firestore stores your saved recipes.</li>
+          <li><strong>Crash reporting:</strong> Firebase Crashlytics receives crash logs (no personal content).</li>
+          <li><strong>Advertising:</strong> AdMob serves interstitial and rewarded ads. Personalization requires your consent (UMP form for EEA/UK/CH/CA users; ATT prompt on iOS).</li>
+        </ul>
+      </section>
+
+      <section id="en-3">
+        <h2><span class="section-num">03</span>Third-Party Services</h2>
+        <ul>
+          <li><strong>Google Firebase</strong> (Auth, Firestore, Functions, Crashlytics, App Check) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></li>
+          <li><strong>Google Gemini AI</strong> (recipe generation) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+          <li><strong>Google AdMob</strong> (advertising) — <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">support.google.com/admob/answer/6128543</a></li>
+          <li><strong>Apple In-App Purchase / Google Play Billing</strong> (subscriptions)</li>
+        </ul>
+      </section>
+
+      <section id="en-4">
+        <h2><span class="section-num">04</span>Your Rights (GDPR / CCPA)</h2>
+        <ul>
+          <li><strong>Access &amp; deletion:</strong> Settings → Account → Delete Account permanently deletes your account and data.</li>
+          <li><strong>Withdraw AI consent:</strong> Settings → AI Recipe Generation toggle.</li>
+          <li><strong>Manage ad personalization:</strong> Settings → Ad &amp; Data Preferences (EEA/UK/CH/CA users).</li>
+          <li><strong>Disable ATT (iOS):</strong> System Settings → Privacy → Tracking → Pare.</li>
+          <li><strong>Data portability / further requests:</strong> Email <a href="mailto:support@appcern.com">support@appcern.com</a>.</li>
+        </ul>
+      </section>
+
+      <section id="en-5">
+        <h2><span class="section-num">05</span>Data Retention</h2>
+        <p>We retain your account data until you delete your account. Crashlytics data is retained for up to 90 days. AdMob retention follows Google's policies.</p>
+      </section>
+
+      <section id="en-6">
+        <h2><span class="section-num">06</span>Children's Privacy</h2>
+        <p>Pare is not directed at children under 13 (or the applicable age in your jurisdiction). We do not knowingly collect data from children.</p>
+      </section>
+
+      <section id="en-7">
+        <h2><span class="section-num">07</span>Security</h2>
+        <p>Data in transit uses HTTPS. Firebase App Check verifies that requests originate from our app. We do not implement custom encryption beyond what platforms provide.</p>
+      </section>
+
+      <section id="en-8">
+        <h2><span class="section-num">08</span>International Transfers</h2>
+        <p>Your data may be processed in countries where Google operates servers. Data transfers comply with applicable safeguards (Standard Contractual Clauses where required).</p>
+      </section>
+
+      <section id="en-9">
+        <h2><span class="section-num">09</span>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy. The "Last updated" date at the top reflects the latest revision.</p>
+      </section>
+
+      <section id="en-10">
+        <h2><span class="section-num">10</span>Contact</h2>
+        <p>Questions or requests? Email <a href="mailto:support@appcern.com">support@appcern.com</a>.</p>
+      </section>
+
+    </div>
+
+    <!-- TURKISH -->
+    <div class="lang-section" data-lang="tr">
+
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Son güncelleme 2026-05-14
+      </div>
+
+      <h1>Gizlilik Politikası</h1>
+      <p class="meta">Pare uygulaması, Appcern tarafından işletilir.</p>
+
+      <nav class="toc">
+        <div class="toc-label">İçindekiler</div>
+        <ol class="toc-list">
+          <li><a href="#tr-1"><span class="toc-num">01</span>Topladığımız Bilgiler</a></li>
+          <li><a href="#tr-2"><span class="toc-num">02</span>Verilerinizi Nasıl Kullanırız</a></li>
+          <li><a href="#tr-3"><span class="toc-num">03</span>Üçüncü Taraf Servisler</a></li>
+          <li><a href="#tr-4"><span class="toc-num">04</span>Haklarınız</a></li>
+          <li><a href="#tr-5"><span class="toc-num">05</span>Veri Saklama</a></li>
+          <li><a href="#tr-6"><span class="toc-num">06</span>Çocukların Gizliliği</a></li>
+          <li><a href="#tr-7"><span class="toc-num">07</span>Güvenlik</a></li>
+          <li><a href="#tr-8"><span class="toc-num">08</span>Uluslararası Aktarımlar</a></li>
+          <li><a href="#tr-9"><span class="toc-num">09</span>Değişiklikler</a></li>
+          <li><a href="#tr-10"><span class="toc-num">10</span>İletişim</a></li>
+        </ol>
+      </nav>
+
+      <section id="tr-1">
+        <h2><span class="section-num">01</span>Topladığımız Bilgiler</h2>
+        <p>Pare'ı kullandığınızda aşağıdaki verileri topluyoruz:</p>
+        <table>
+          <thead>
+            <tr><th>Kategori</th><th>Örnek</th><th>Amaç</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Hesap</td><td>E-posta, ad (giriş yaparsanız)</td><td>Hesap oluşturma</td></tr>
+            <tr><td>Tercihler</td><td>Mutfak, beslenme kısıtları, malzemeler</td><td>Tarif kişiselleştirme</td></tr>
+            <tr><td>Kullanım verisi</td><td>Çökme raporları, AI istek sayıları</td><td>Uygulama kararlılığı, analitik</td></tr>
+            <tr><td>Reklam</td><td>IDFA / Reklam kimliği (onayla)</td><td>Reklam kişiselleştirme (AdMob)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="tr-2">
+        <h2><span class="section-num">02</span>Verilerinizi Nasıl Kullanırız</h2>
+        <ul>
+          <li><strong>Tarif üretimi:</strong> Malzeme listeniz, beslenme tercihleriniz ve ülke bilginiz, kişiselleştirilmiş tarifler üretmek için Google Gemini AI'ya gönderilir.</li>
+          <li><strong>Uygulama işlevi:</strong> Firebase Auth oturum açmayı yönetir; Firestore kaydedilen tariflerinizi saklar.</li>
+          <li><strong>Çökme raporlama:</strong> Firebase Crashlytics çökme günlüklerini alır (kişisel içerik yok).</li>
+          <li><strong>Reklam:</strong> AdMob interstitial ve rewarded reklam sunar. Kişiselleştirme onayınızı gerektirir (EEA/UK/CH/CA için UMP formu, iOS'ta ATT prompt'u).</li>
+        </ul>
+      </section>
+
+      <section id="tr-3">
+        <h2><span class="section-num">03</span>Üçüncü Taraf Servisler</h2>
+        <ul>
+          <li><strong>Google Firebase</strong> (Auth, Firestore, Functions, Crashlytics, App Check) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com/support/privacy</a></li>
+          <li><strong>Google Gemini AI</strong> (tarif üretimi) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></li>
+          <li><strong>Google AdMob</strong> (reklam) — <a href="https://support.google.com/admob/answer/6128543" target="_blank" rel="noopener">support.google.com/admob/answer/6128543</a></li>
+          <li><strong>Apple In-App Purchase / Google Play Billing</strong> (abonelik)</li>
+        </ul>
+      </section>
+
+      <section id="tr-4">
+        <h2><span class="section-num">04</span>Haklarınız (KVKK / GDPR / CCPA)</h2>
+        <ul>
+          <li><strong>Erişim ve silme:</strong> Ayarlar → Hesap → Hesabı Sil ile hesabınız ve verileriniz kalıcı olarak silinir.</li>
+          <li><strong>AI onayını geri çekme:</strong> Ayarlar → Yapay Zeka Tarif Üretimi geçişi.</li>
+          <li><strong>Reklam kişiselleştirmeyi yönetme:</strong> Ayarlar → Reklam ve Veri Tercihleri (EEA/UK/CH/CA kullanıcıları).</li>
+          <li><strong>ATT'yi devre dışı bırakma (iOS):</strong> Sistem Ayarları → Gizlilik → İzleme → Pare.</li>
+          <li><strong>Veri taşınabilirliği / diğer talepler:</strong> <a href="mailto:support@appcern.com">support@appcern.com</a>.</li>
+        </ul>
+      </section>
+
+      <section id="tr-5">
+        <h2><span class="section-num">05</span>Veri Saklama</h2>
+        <p>Hesap verilerinizi siz silene kadar saklarız. Crashlytics verileri 90 güne kadar saklanır. AdMob saklama süresi Google politikalarına tabidir.</p>
+      </section>
+
+      <section id="tr-6">
+        <h2><span class="section-num">06</span>Çocukların Gizliliği</h2>
+        <p>Pare 13 yaş altı (veya bulunduğunuz yargı bölgesindeki ilgili yaşın altındaki) çocuklara yönelik değildir. Çocuklardan bilerek veri toplamayız.</p>
+      </section>
+
+      <section id="tr-7">
+        <h2><span class="section-num">07</span>Güvenlik</h2>
+        <p>Aktarımdaki veri HTTPS kullanır. Firebase App Check, isteklerin uygulamamızdan kaynaklandığını doğrular. Platform standartları dışında özel şifreleme uygulamayız.</p>
+      </section>
+
+      <section id="tr-8">
+        <h2><span class="section-num">08</span>Uluslararası Aktarımlar</h2>
+        <p>Verileriniz Google'ın sunucularının bulunduğu ülkelerde işlenebilir. Aktarımlar geçerli güvenceler (gerekli yerlerde Standart Sözleşme Maddeleri) ile yapılır.</p>
+      </section>
+
+      <section id="tr-9">
+        <h2><span class="section-num">09</span>Bu Politikadaki Değişiklikler</h2>
+        <p>Bu Gizlilik Politikasını güncelleyebiliriz. Yukarıdaki "Son güncelleme" tarihi en son revizyonu yansıtır.</p>
+      </section>
+
+      <section id="tr-10">
+        <h2><span class="section-num">10</span>İletişim</h2>
+        <p>Sorularınız veya talepleriniz için: <a href="mailto:support@appcern.com">support@appcern.com</a>.</p>
+      </section>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <a class="back-link" href="../">← Back to legal documents</a><br>
+    © 2026 Appcern. All rights reserved. · <a href="mailto:support@appcern.com">support@appcern.com</a>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.lang-btn');
+    const sections = document.querySelectorAll('.lang-section');
+
+    function setLang(lang) {
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+      sections.forEach(s => s.classList.toggle('active', s.dataset.lang === lang));
+      localStorage.setItem('pare-legal-lang', lang);
+      document.documentElement.lang = lang;
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Restore previous choice or detect from browser
+    const saved = localStorage.getItem('pare-legal-lang');
+    if (saved === 'tr' || saved === 'en') {
+      setLang(saved);
+    } else if (navigator.language && navigator.language.startsWith('tr')) {
+      setLang('tr');
+    }
+  </script>
+
+</body>
+</html>
