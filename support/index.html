@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support · Pare</title>
+  <meta name="description" content="Get help with Pare, your personal AI cooking assistant by Appcern. Find answers or contact our support team.">
+  <style>
+    :root {
+      --bg: #FFFBF7;
+      --surface: #FFFFFF;
+      --text: #1a1a1a;
+      --text-muted: #555555;
+      --text-subtle: #888888;
+      --border: rgba(0,0,0,0.08);
+      --border-strong: rgba(0,0,0,0.12);
+      --accent: #FF6B35;
+      --accent-soft: #FFE8DD;
+      --accent-dark: #993C1D;
+      --table-header: #F7F2EA;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1410;
+        --surface: #241c17;
+        --text: #f5f1ea;
+        --text-muted: #b8b0a8;
+        --text-subtle: #7e766e;
+        --border: rgba(255,255,255,0.08);
+        --border-strong: rgba(255,255,255,0.14);
+        --accent: #FF8556;
+        --accent-soft: #3a2418;
+        --accent-dark: #FFB593;
+        --table-header: #2d231c;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 0.5px solid var(--border);
+      z-index: 10;
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+    }
+
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      background: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 17px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+    }
+
+    .brand-name { font-size: 14px; font-weight: 500; }
+
+    .lang-switch {
+      display: flex;
+      gap: 3px;
+      background: var(--surface);
+      padding: 3px;
+      border-radius: 8px;
+      border: 0.5px solid var(--border);
+    }
+
+    .lang-btn {
+      padding: 5px 12px;
+      background: transparent;
+      border: none;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-subtle);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .lang-btn.active {
+      background: var(--bg);
+      color: var(--text);
+      box-shadow: 0 0.5px 1px rgba(0,0,0,0.08);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 42px;
+      font-weight: 500;
+      margin: 0 0 12px;
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+    }
+
+    .meta {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin: 0 0 48px;
+    }
+
+    /* Contact Card — support specific */
+    .contact-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 56px;
+      text-align: center;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .contact-intro {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin: 0 0 18px;
+    }
+
+    .contact-email {
+      display: inline-block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 8px 0;
+      letter-spacing: -0.3px;
+    }
+
+    .contact-email:hover { text-decoration: underline; }
+
+    .response-note {
+      font-size: 13px;
+      color: var(--text-subtle);
+      margin-top: 10px;
+    }
+
+    nav.toc {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 22px 26px;
+      margin-bottom: 56px;
+    }
+
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-subtle);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .toc-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      columns: 2;
+      column-gap: 24px;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .toc-list a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .toc-list a:hover { color: var(--accent); }
+
+    .toc-num {
+      color: var(--accent);
+      margin-right: 10px;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    section {
+      margin-bottom: 44px;
+      scroll-margin-top: 80px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 500;
+      margin: 0 0 18px;
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      line-height: 1.3;
+    }
+
+    .section-num {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      color: var(--accent);
+      font-size: 18px;
+      font-weight: 400;
+      flex-shrink: 0;
+    }
+
+    p, ul {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin: 0 0 14px;
+    }
+
+    p:last-child, ul:last-child { margin-bottom: 0; }
+
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+
+    strong { color: var(--text); font-weight: 500; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .steps {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px 16px 20px;
+      margin: 12px 0;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .steps li:last-child { margin-bottom: 0; }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 22px;
+      height: 22px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, serif;
+    }
+
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+
+    footer {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px;
+      border-top: 0.5px solid var(--border);
+      color: var(--text-subtle);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    footer a { color: var(--accent); }
+    footer .back-link { display: inline-block; margin-bottom: 12px; }
+
+    @media (max-width: 520px) {
+      .header-inner { padding: 14px 20px; }
+      .container { padding: 36px 20px 60px; }
+      h1 { font-size: 32px; }
+      h2 { font-size: 19px; gap: 10px; }
+      .toc-list { columns: 1; }
+      nav.toc { padding: 18px 20px; }
+      .contact-card { padding: 24px 20px; }
+      .contact-email { font-size: 20px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="../">
+        <div class="brand-mark">P</div>
+        <span class="brand-name">Pare</span>
+      </a>
+      <div class="lang-switch" role="tablist">
+        <button class="lang-btn active" data-lang="en" role="tab">EN</button>
+        <button class="lang-btn" data-lang="tr" role="tab">TR</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- ENGLISH -->
+    <div class="lang-section active" data-lang="en">
+
+      <div class="badge">
+        <span class="badge-dot"></span>
+        We're here to help
+      </div>
+
+      <h1>Support</h1>
+      <p class="meta">Get help with Pare, your personal AI cooking assistant.</p>
+
+      <div class="contact-card">
+        <div class="contact-label">Contact us</div>
+        <p class="contact-intro">Questions, feedback, or need a hand? Reach out anytime.</p>
+        <a href="mailto:support@appcern.com" class="contact-email">support@appcern.com</a>
+        <p class="response-note">We typically respond within 48 hours.</p>
+      </div>
+
+      <nav class="toc">
+        <div class="toc-label">Frequently Asked</div>
+        <ol class="toc-list">
+          <li><a href="#en-1"><span class="toc-num">01</span>How recipes work</a></li>
+          <li><a href="#en-2"><span class="toc-num">02</span>Subscriptions</a></li>
+          <li><a href="#en-3"><span class="toc-num">03</span>Cancel anytime</a></li>
+          <li><a href="#en-4"><span class="toc-num">04</span>Refunds</a></li>
+          <li><a href="#en-5"><span class="toc-num">05</span>Restore purchases</a></li>
+          <li><a href="#en-6"><span class="toc-num">06</span>Dietary preferences</a></li>
+          <li><a href="#en-7"><span class="toc-num">07</span>Offline use</a></li>
+          <li><a href="#en-8"><span class="toc-num">08</span>Delete account</a></li>
+          <li><a href="#en-9"><span class="toc-num">09</span>Data &amp; privacy</a></li>
+          <li><a href="#en-10"><span class="toc-num">10</span>Report a bug</a></li>
+        </ol>
+      </nav>
+
+      <section id="en-1">
+        <h2><span class="section-num">01</span>How does Pare generate recipes?</h2>
+        <p>Pare uses Google's Gemini AI to create personalized recipes based on the ingredients you have, your dietary preferences, your skill level, and your cuisine interests. The more you use Pare, the better it understands your taste.</p>
+        <p>Daily tips, food facts, and kitchen hacks are curated and refreshed regularly to help you cook smarter every day.</p>
+      </section>
+
+      <section id="en-2">
+        <h2><span class="section-num">02</span>What does the subscription include?</h2>
+        <p>Pare Premium unlocks unlimited AI recipe generation, advanced dietary filters, and an ad-free experience. Two plans are available:</p>
+        <ul>
+          <li><strong>Monthly:</strong> $4.99 / month</li>
+          <li><strong>Annual:</strong> $29.99 / year (best value)</li>
+        </ul>
+        <p>Pricing may vary by region. Exact prices are shown in the app before you purchase.</p>
+      </section>
+
+      <section id="en-3">
+        <h2><span class="section-num">03</span>How do I cancel my subscription?</h2>
+        <p>Subscriptions are managed through your Apple ID or Google account. To cancel on <strong>iOS</strong>:</p>
+        <ol class="steps">
+          <li>Open the Settings app on your iPhone</li>
+          <li>Tap your name at the top</li>
+          <li>Tap "Subscriptions"</li>
+          <li>Select Pare and tap "Cancel Subscription"</li>
+        </ol>
+        <p>On <strong>Android</strong>: Open the Play Store → Profile → Payments &amp; subscriptions → Subscriptions → Pare → Cancel.</p>
+        <p>Your subscription stays active until the end of the current billing period.</p>
+      </section>
+
+      <section id="en-4">
+        <h2><span class="section-num">04</span>How do I request a refund?</h2>
+        <p>Refunds are handled directly by Apple or Google, not by Appcern.</p>
+        <ul>
+          <li><strong>Apple:</strong> Visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>, sign in, and select the Pare purchase.</li>
+          <li><strong>Google Play:</strong> Visit <a href="https://play.google.com/store/account/orderhistory" target="_blank" rel="noopener">play.google.com/store/account/orderhistory</a> and request a refund within the eligibility window.</li>
+        </ul>
+        <p>If you experienced a technical issue, email us at <a href="mailto:support@appcern.com">support@appcern.com</a> and we'll do our best to help.</p>
+      </section>
+
+      <section id="en-5">
+        <h2><span class="section-num">05</span>How do I restore purchases on a new device?</h2>
+        <p>Open Pare on your new device, go to <strong>Settings → Restore Purchases</strong>, and sign in with the same Apple ID or Google account you used originally.</p>
+        <p>If you don't see your subscription after restoring, wait a few minutes and try again — store servers occasionally take time to sync.</p>
+      </section>
+
+      <section id="en-6">
+        <h2><span class="section-num">06</span>Why aren't my dietary preferences applied?</h2>
+        <p>Make sure your preferences are saved in <strong>Settings → Dietary Preferences</strong>. Pare supports vegan, vegetarian, keto, paleo, gluten-free, dairy-free, and several other diets.</p>
+        <p>If recipes still don't match your settings, try signing out and back in. Still seeing issues? Email <a href="mailto:support@appcern.com">support@appcern.com</a> with a screenshot.</p>
+      </section>
+
+      <section id="en-7">
+        <h2><span class="section-num">07</span>Can I use Pare offline?</h2>
+        <p>Pare needs an internet connection to generate new AI recipes and load daily tips. Recipes you've saved to your favorites remain available offline.</p>
+      </section>
+
+      <section id="en-8">
+        <h2><span class="section-num">08</span>How do I delete my account?</h2>
+        <p>Go to <strong>Settings → Account → Delete Account</strong> within the app. This permanently deletes your account and all associated data and cannot be undone.</p>
+        <p>If you have an active subscription, cancel it separately through your Apple ID or Google account (see section 03).</p>
+      </section>
+
+      <section id="en-9">
+        <h2><span class="section-num">09</span>Is my data safe?</h2>
+        <p>Yes. Your data is encrypted in transit using HTTPS, and Firebase App Check verifies that requests come from our app. We never sell your personal information.</p>
+        <p>For full details, see our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+      </section>
+
+      <section id="en-10">
+        <h2><span class="section-num">10</span>How do I report a bug or suggest a feature?</h2>
+        <p>Email us at <a href="mailto:support@appcern.com">support@appcern.com</a> with the subject "Bug Report" or "Feature Request".</p>
+        <p>For bug reports, please include:</p>
+        <ul>
+          <li>Your device model (e.g., iPhone 15 Pro)</li>
+          <li>Your OS version (e.g., iOS 18.2)</li>
+          <li>What you were doing when the issue happened</li>
+          <li>A screenshot or screen recording, if possible</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <!-- TURKISH -->
+    <div class="lang-section" data-lang="tr">
+
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Yardıma hazırız
+      </div>
+
+      <h1>Destek</h1>
+      <p class="meta">Kişisel AI yemek asistanınız Pare ile ilgili yardım alın.</p>
+
+      <div class="contact-card">
+        <div class="contact-label">Bize ulaşın</div>
+        <p class="contact-intro">Sorularınız, geri bildirimleriniz veya yardıma ihtiyacınız mı var? Her zaman yazabilirsiniz.</p>
+        <a href="mailto:support@appcern.com" class="contact-email">support@appcern.com</a>
+        <p class="response-note">Genellikle 48 saat içinde yanıt veriyoruz.</p>
+      </div>
+
+      <nav class="toc">
+        <div class="toc-label">Sık Sorulanlar</div>
+        <ol class="toc-list">
+          <li><a href="#tr-1"><span class="toc-num">01</span>Tarifler nasıl üretilir</a></li>
+          <li><a href="#tr-2"><span class="toc-num">02</span>Abonelikler</a></li>
+          <li><a href="#tr-3"><span class="toc-num">03</span>İptal etme</a></li>
+          <li><a href="#tr-4"><span class="toc-num">04</span>İade</a></li>
+          <li><a href="#tr-5"><span class="toc-num">05</span>Satın alma geri yükleme</a></li>
+          <li><a href="#tr-6"><span class="toc-num">06</span>Beslenme tercihleri</a></li>
+          <li><a href="#tr-7"><span class="toc-num">07</span>Çevrimdışı kullanım</a></li>
+          <li><a href="#tr-8"><span class="toc-num">08</span>Hesap silme</a></li>
+          <li><a href="#tr-9"><span class="toc-num">09</span>Veri ve gizlilik</a></li>
+          <li><a href="#tr-10"><span class="toc-num">10</span>Hata bildirme</a></li>
+        </ol>
+      </nav>
+
+      <section id="tr-1">
+        <h2><span class="section-num">01</span>Pare tarifleri nasıl üretir?</h2>
+        <p>Pare, elinizdeki malzemeler, beslenme tercihleriniz, mutfak seviyeniz ve damak zevkinize dayalı kişiselleştirilmiş tarifler üretmek için Google'ın Gemini AI'sını kullanır. Pare'i ne kadar çok kullanırsanız, zevkinizi o kadar iyi anlar.</p>
+        <p>Günlük ipuçları, gıda bilgileri ve mutfak püf noktaları, daha akıllı yemek pişirmenize yardımcı olmak için düzenli olarak güncellenir.</p>
+      </section>
+
+      <section id="tr-2">
+        <h2><span class="section-num">02</span>Abonelik neleri içerir?</h2>
+        <p>Pare Premium; sınırsız AI tarif üretimi, gelişmiş beslenme filtreleri ve reklamsız deneyim sunar. İki plan mevcuttur:</p>
+        <ul>
+          <li><strong>Aylık:</strong> $4.99 / ay</li>
+          <li><strong>Yıllık:</strong> $29.99 / yıl (en avantajlı)</li>
+        </ul>
+        <p>Fiyatlandırma bölgeye göre değişebilir. Satın almadan önce uygulamada güncel fiyat gösterilir.</p>
+      </section>
+
+      <section id="tr-3">
+        <h2><span class="section-num">03</span>Aboneliğimi nasıl iptal ederim?</h2>
+        <p>Abonelikler Apple ID veya Google hesabınız üzerinden yönetilir. <strong>iOS</strong>'ta iptal etmek için:</p>
+        <ol class="steps">
+          <li>iPhone'da Ayarlar uygulamasını açın</li>
+          <li>En üstteki adınıza dokunun</li>
+          <li>"Abonelikler"e dokunun</li>
+          <li>Pare'i seçin ve "Aboneliği İptal Et"e dokunun</li>
+        </ol>
+        <p><strong>Android</strong>'de: Play Store → Profil → Ödemeler ve abonelikler → Abonelikler → Pare → İptal Et.</p>
+        <p>Aboneliğiniz mevcut fatura döneminin sonuna kadar aktif kalır.</p>
+      </section>
+
+      <section id="tr-4">
+        <h2><span class="section-num">04</span>İade nasıl alabilirim?</h2>
+        <p>İadeler Appcern tarafından değil, doğrudan Apple veya Google tarafından yönetilir.</p>
+        <ul>
+          <li><strong>Apple:</strong> <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>'a gidin, giriş yapın ve Pare satın alımını seçin.</li>
+          <li><strong>Google Play:</strong> <a href="https://play.google.com/store/account/orderhistory" target="_blank" rel="noopener">play.google.com/store/account/orderhistory</a>'den iade talebinde bulunun.</li>
+        </ul>
+        <p>Teknik bir sorun yaşadıysanız <a href="mailto:support@appcern.com">support@appcern.com</a> adresine yazabilirsiniz, size yardımcı olmaya çalışırız.</p>
+      </section>
+
+      <section id="tr-5">
+        <h2><span class="section-num">05</span>Yeni cihazda satın alımları nasıl geri yüklerim?</h2>
+        <p>Yeni cihazınızda Pare'i açın, <strong>Ayarlar → Satın Alımları Geri Yükle</strong> bölümüne gidin ve önceki satın alımı yaptığınız Apple ID veya Google hesabıyla giriş yapın.</p>
+        <p>Geri yükleme sonrası aboneliğinizi göremiyorsanız birkaç dakika bekleyip tekrar deneyin — mağaza sunucuları bazen senkronize olmak için zaman alıyor.</p>
+      </section>
+
+      <section id="tr-6">
+        <h2><span class="section-num">06</span>Beslenme tercihlerim neden uygulanmıyor?</h2>
+        <p>Tercihlerinizin <strong>Ayarlar → Beslenme Tercihleri</strong> bölümünde kayıtlı olduğundan emin olun. Pare; vegan, vejetaryen, ketojenik, paleo, glutensiz, süt ürünsüz ve birkaç farklı diyeti destekler.</p>
+        <p>Tarifler hâlâ ayarlarınızla eşleşmiyorsa çıkış yapıp tekrar giriş yapmayı deneyin. Sorun devam ederse ekran görüntüsüyle birlikte <a href="mailto:support@appcern.com">support@appcern.com</a> adresine yazın.</p>
+      </section>
+
+      <section id="tr-7">
+        <h2><span class="section-num">07</span>Pare'i çevrimdışı kullanabilir miyim?</h2>
+        <p>Yeni AI tarifler üretmek ve günlük ipuçlarını yüklemek için Pare'in internet bağlantısına ihtiyacı vardır. Favorilerinize kaydettiğiniz tarifler çevrimdışı da görüntülenebilir.</p>
+      </section>
+
+      <section id="tr-8">
+        <h2><span class="section-num">08</span>Hesabımı nasıl silerim?</h2>
+        <p>Uygulama içinde <strong>Ayarlar → Hesap → Hesabı Sil</strong> bölümüne gidin. Bu işlem hesabınızı ve tüm verilerinizi kalıcı olarak siler, geri alınamaz.</p>
+        <p>Aktif aboneliğiniz varsa, Apple ID veya Google hesabınız üzerinden ayrıca iptal etmeniz gerekir (bkz. bölüm 03).</p>
+      </section>
+
+      <section id="tr-9">
+        <h2><span class="section-num">09</span>Verilerim güvende mi?</h2>
+        <p>Evet. Verileriniz aktarım sırasında HTTPS ile şifrelenir ve Firebase App Check, isteklerin uygulamamızdan kaynaklandığını doğrular. Kişisel bilgilerinizi asla satmayız.</p>
+        <p>Detaylı bilgi için <a href="privacy-policy.html">Gizlilik Politikası</a>'na bakın.</p>
+      </section>
+
+      <section id="tr-10">
+        <h2><span class="section-num">10</span>Hata bildirme veya özellik önerme</h2>
+        <p>"Bug Report" veya "Feature Request" konusuyla <a href="mailto:support@appcern.com">support@appcern.com</a> adresine yazın.</p>
+        <p>Hata bildirimleri için lütfen şunları ekleyin:</p>
+        <ul>
+          <li>Cihaz modeliniz (örn. iPhone 15 Pro)</li>
+          <li>İşletim sistemi sürümünüz (örn. iOS 18.2)</li>
+          <li>Sorun yaşandığında ne yapıyordunuz</li>
+          <li>Mümkünse ekran görüntüsü veya video</li>
+        </ul>
+      </section>
+
+    </div>
+
+  </div>
+
+  <footer>
+    <a class="back-link" href="../">← Back to legal documents</a><br>
+    © 2026 Appcern. All rights reserved. · <a href="mailto:support@appcern.com">support@appcern.com</a>
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('.lang-btn');
+    const sections = document.querySelectorAll('.lang-section');
+
+    function setLang(lang) {
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+      sections.forEach(s => s.classList.toggle('active', s.dataset.lang === lang));
+      localStorage.setItem('pare-legal-lang', lang);
+      document.documentElement.lang = lang;
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Restore previous choice or detect from browser
+    const saved = localStorage.getItem('pare-legal-lang');
+    if (saved === 'tr' || saved === 'en') {
+      setLang(saved);
+    } else if (navigator.language && navigator.language.startsWith('tr')) {
+      setLang('tr');
+    }
+  </script>
+
+</body>
+</html>
